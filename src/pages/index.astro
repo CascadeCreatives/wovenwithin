@@ -126,7 +126,7 @@ import Base from '../layouts/Base.astro';
     </div>
     <div class="offerings">
       <div class="offer-card rv">
-        <div class="offer-img"><span class="offer-img-label">One-on-One</span></div>
+        <div class="offer-img"><img src="/images/offer-abstract-1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
         <div class="offer-body">
           <span class="offer-tag">Private Coaching</span>
           <h3 class="offer-title">Creative Life Sessions</h3>
@@ -135,7 +135,7 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
       <div class="offer-card rv rv-d1">
-        <div class="offer-img"><span class="offer-img-label">Community</span></div>
+        <div class="offer-img"><img src="/images/offer-abstract-2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
         <div class="offer-body">
           <span class="offer-tag">Group Experience</span>
           <h3 class="offer-title">The Woven Circle</h3>
@@ -144,7 +144,7 @@ import Base from '../layouts/Base.astro';
         </div>
       </div>
       <div class="offer-card rv rv-d2">
-        <div class="offer-img"><span class="offer-img-label">Self-Guided</span></div>
+        <div class="offer-img"><img src="/images/offer-abstract-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
         <div class="offer-body">
           <span class="offer-tag">Creative Resources</span>
           <h3 class="offer-title">Grounding Guides</h3>
@@ -170,7 +170,7 @@ import Base from '../layouts/Base.astro';
     <div class="shop-grid">
       <div class="shop-card rv">
         <div class="shop-card-img">
-          <img src="/images/shop-sweater-1.jpg" alt="Rainbow Crochet Cardigan — hand-crocheted in multicolor yarn" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="/images/shop-sweater-1.jpg" alt="Rainbow Crochet Cardigan" style="width:100%;height:100%;object-fit:cover;display:block;" />
           <span class="shop-badge">New</span>
         </div>
         <p class="shop-card-name">Rainbow Crochet Cardigan</p>
@@ -179,23 +179,43 @@ import Base from '../layouts/Base.astro';
       </div>
       <div class="shop-card rv rv-d1">
         <div class="shop-card-img">
-          <img src="/images/shop-sweater-2.jpg" alt="Berry Crochet Jacket — hand-crocheted in pink and plum" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <img src="/images/shop-sweater-2.jpg" alt="Berry Crochet Jacket" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <p class="shop-card-name">Berry Crochet Jacket</p>
         <p class="shop-card-detail">Hand-crocheted · Pink & plum</p>
         <p class="shop-card-price">$138</p>
       </div>
       <div class="shop-card rv rv-d2">
-        <div class="shop-card-img"><span class="shop-card-img-label">Botanical<br/>Art Print</span></div>
-        <p class="shop-card-name">Quiet Morning — Print</p>
-        <p class="shop-card-detail">Archival ink on cotton paper</p>
+        <div class="shop-card-img">
+          <img src="/images/shop-print-trees.jpg" alt="Pink Canopy — original watercolor art print" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <p class="shop-card-name">Pink Canopy — Art Print</p>
+        <p class="shop-card-detail">Original watercolor · Archival paper</p>
         <p class="shop-card-price">$45</p>
       </div>
       <div class="shop-card rv rv-d3">
-        <div class="shop-card-img"><span class="shop-card-img-label">Creative<br/>Journal</span></div>
-        <p class="shop-card-name">Creative Grounding Journal</p>
-        <p class="shop-card-detail">Hand-bound · Guided prompts</p>
-        <p class="shop-card-price">$36</p>
+        <div class="shop-card-img">
+          <img src="/images/shop-shawl-1.jpg" alt="Sunset Crochet Shawl in coral, navy, and lavender" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <p class="shop-card-name">Sunset Crochet Shawl</p>
+        <p class="shop-card-detail">Hand-crocheted · Coral & navy</p>
+        <p class="shop-card-price">$88</p>
+      </div>
+      <div class="shop-card rv">
+        <div class="shop-card-img">
+          <img src="/images/shop-shawl-2.jpg" alt="Ocean Fringe Shawl in teal and cream" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <p class="shop-card-name">Ocean Fringe Shawl</p>
+        <p class="shop-card-detail">Hand-crocheted · Teal & cream</p>
+        <p class="shop-card-price">$92</p>
+      </div>
+      <div class="shop-card rv rv-d1">
+        <div class="shop-card-img">
+          <img src="/images/shop-print-mosaic.jpg" alt="Mosaic Joy — original watercolor art print" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <p class="shop-card-name">Mosaic Joy — Art Print</p>
+        <p class="shop-card-detail">Original watercolor · Archival paper</p>
+        <p class="shop-card-price">$45</p>
       </div>
     </div>
   </div>
@@ -248,19 +268,19 @@ import Base from '../layouts/Base.astro';
     </div>
     <div class="journal-grid">
       <div class="j-card rv">
-        <div class="j-card-img"></div>
+        <img class="j-card-img" src="/images/journal-watercolor-1.jpg" alt="" style="width:100%;object-fit:cover;display:block;" />
         <span class="j-card-tag">Creativity & Care</span>
         <h3 class="j-card-title"><a href="#">What I Mean When I Say "Creative Life Coaching"</a></h3>
         <p class="j-card-excerpt">It's not about painting a masterpiece. It's about using your hands, your eyes, and your attention as tools for coming home to yourself.</p>
       </div>
       <div class="j-card rv rv-d1">
-        <div class="j-card-img"></div>
+        <img class="j-card-img" src="/images/journal-watercolor-2.jpg" alt="" style="width:100%;object-fit:cover;display:block;" />
         <span class="j-card-tag">Nervous System</span>
         <h3 class="j-card-title"><a href="#">The Quiet Practice That Changed My Mornings</a></h3>
         <p class="j-card-excerpt">Five minutes before anyone wakes up. A cup of something warm. And a very small creative act that rewired my whole day.</p>
       </div>
       <div class="j-card rv rv-d2">
-        <div class="j-card-img"></div>
+        <img class="j-card-img" src="/images/journal-watercolor-3.jpg" alt="" style="width:100%;object-fit:cover;display:block;" />
         <span class="j-card-tag">Motherhood</span>
         <h3 class="j-card-title"><a href="#">Co-Regulation Starts with You</a></h3>
         <p class="j-card-excerpt">Your children don't need a perfect mother. They need a mother who is learning to tend to her own steadiness — and letting them witness the practice.</p>
@@ -371,7 +391,7 @@ import Base from '../layouts/Base.astro';
   .shop { background: linear-gradient(180deg, var(--cream) 0%, var(--sand-light) 100%); }
   .shop-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(36px, 4vw, 56px); flex-wrap: wrap; gap: 20px; }
   .shop-intro { max-width: 540px; font-size: 0.95rem; font-weight: 300; color: var(--text-light); line-height: 1.8; margin-top: 16px; }
-  .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .shop-card { cursor: pointer; transition: all 0.4s ease; }
   .shop-card:hover { transform: translateY(-5px); }
   .shop-card-img { width: 100%; aspect-ratio: 1; border-radius: 16px; overflow: hidden; margin-bottom: 16px; position: relative; }
