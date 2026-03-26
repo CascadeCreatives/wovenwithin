@@ -1,0 +1,122 @@
+/* ===== WOVEN WITHIN — Global Styles ===== */
+
+:root {
+  --rose: #D4727E;
+  --rose-soft: #E8A0A8;
+  --rose-pale: #F5D5D9;
+  --blush: #FAE8EB;
+  --cream: #FDF8F4;
+  --warm-white: #FEFCFA;
+  --plum: #7B4A6B;
+  --plum-deep: #5C3651;
+  --plum-rich: #4A2A3E;
+  --lavender: #B498C4;
+  --lavender-soft: #D8C8E2;
+  --sky: #A8CBE0;
+  --sky-pale: #D4E6F1;
+  --coral: #E06B4F;
+  --coral-warm: #E8845C;
+  --terracotta: #C4694A;
+  --sand: #E8D5C0;
+  --sand-light: #F2E8DA;
+  --text: #4A3F46;
+  --text-light: #7A6E74;
+  --gold: #C49A6C;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Karla', sans-serif;
+  --font-accent: 'Caveat', cursive;
+
+  --nav-h: 76px;
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background texture */
+.woven-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L15 15 L30 30 L15 45Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3Cpath d='M30 30 L45 15 L60 30 L45 45Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3Cpath d='M15 0 L30 15 L15 30 L0 15Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3Cpath d='M45 0 L60 15 L45 30 L30 15Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3Cpath d='M15 30 L30 45 L15 60 L0 45Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3Cpath d='M45 30 L60 45 L45 60 L30 45Z' fill='none' stroke='%237B4A6B' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* Shared section utilities */
+section { position: relative; z-index: 1; }
+.sec-pad { padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 80px); }
+.sec-center { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: var(--font-accent); font-size: 1.15rem; color: var(--rose); margin-bottom: 10px; }
+.sec-h2 { font-family: var(--font-display); font-size: clamp(2.1rem, 4.2vw, 3.2rem); font-weight: 300; color: var(--plum-deep); line-height: 1.15; margin-bottom: 18px; }
+.sec-h2 em { font-style: italic; font-weight: 400; color: var(--rose); }
+.sec-body { font-size: 1rem; font-weight: 300; color: var(--text-light); line-height: 1.85; max-width: 600px; }
+
+/* Divider */
+.divider { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px 0; }
+.divider .d-line { width: 48px; height: 1px; background: linear-gradient(to right, transparent, var(--rose-soft), transparent); }
+.divider .d-dia { width: 5px; height: 5px; background: var(--rose-soft); transform: rotate(45deg); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 100px; border: none; cursor: pointer; transition: all 0.4s ease; }
+.btn-fill { padding: 17px 38px; background: var(--plum); color: white; }
+.btn-fill:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(92,54,81,0.22); }
+.btn-outline { padding: 16px 36px; background: transparent; color: var(--plum); border: 1.5px solid rgba(123,74,107,0.35); }
+.btn-outline:hover { background: var(--plum); color: white; border-color: var(--plum); transform: translateY(-2px); }
+.btn-ghost { padding: 0; background: none; color: var(--plum); font-size: 0.82rem; letter-spacing: 0.06em; }
+.btn-ghost svg { width: 16px; height: 16px; transition: transform 0.3s; }
+.btn-ghost:hover { color: var(--rose); }
+.btn-ghost:hover svg { transform: translateX(4px); }
+
+/* Scroll reveal */
+.rv { opacity: 0; transform: translateY(32px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.rv.vis { opacity: 1; transform: translateY(0); }
+.rv-d1 { transition-delay: 0.08s; }
+.rv-d2 { transition-delay: 0.16s; }
+.rv-d3 { transition-delay: 0.24s; }
+.rv-d4 { transition-delay: 0.32s; }
+
+/* Drift animation for orbs & art */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(25px, -35px) scale(1.05); }
+  66% { transform: translate(-20px, 25px) scale(0.95); }
+}
+
+/* Melissa's artwork accents */
+.art-bee {
+  position: absolute; right: clamp(-40px, -2vw, -10px); bottom: -30px;
+  width: clamp(140px, 18vw, 220px); opacity: 0.18; pointer-events: none;
+  z-index: 3; filter: saturate(0.8); animation: drift 30s ease-in-out infinite 2s; transform: rotate(-8deg);
+}
+.art-honeycomb-hero {
+  position: absolute; left: clamp(-30px, -1vw, -5px); top: 18%;
+  width: clamp(100px, 12vw, 160px); opacity: 0.1; pointer-events: none;
+  z-index: 1; filter: saturate(0.7); animation: drift 26s ease-in-out infinite 4s; transform: rotate(12deg);
+}
+.art-honeycomb-phil {
+  position: absolute; right: clamp(20px, 4vw, 80px); top: 12%;
+  width: clamp(110px, 14vw, 180px); opacity: 0.12; pointer-events: none;
+  z-index: 1; filter: saturate(0.7); transform: rotate(-15deg);
+}
+.art-bee-journal {
+  position: absolute; left: clamp(10px, 3vw, 60px); bottom: -10px;
+  width: clamp(120px, 15vw, 190px); opacity: 0.13; pointer-events: none;
+  z-index: 1; filter: saturate(0.75); transform: rotate(15deg) scaleX(-1);
+}
+.art-honeycomb-signup {
+  position: absolute; left: clamp(-20px, -1vw, 0px); bottom: 10%;
+  width: clamp(80px, 10vw, 130px); opacity: 0.08; pointer-events: none;
+  z-index: 1; filter: saturate(0.6); transform: rotate(25deg);
+}
+
+@media (max-width: 768px) {
+  .art-bee, .art-honeycomb-hero, .art-honeycomb-phil, .art-bee-journal, .art-honeycomb-signup { opacity: 0.06; }
+}
