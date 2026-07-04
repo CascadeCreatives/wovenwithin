@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-
 export default defineConfig({
-  site: 'https://wovenwithin.com',
+  site: 'https://wovenwithin.vercel.app',
 });

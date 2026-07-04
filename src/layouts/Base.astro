@@ -1,203 +1,172 @@
 ---
 import '../styles/global.css';
-
-interface Props {
-  title?: string;
-  description?: string;
-}
-
-const {
-  title = 'Woven Within — Where Creativity Becomes Care',
-  description = 'Creative life coaching, handmade goods, and soulful resources for mothers seeking more calm, connection, and creative nourishment.'
-} = Astro.props;
+const { title = 'Woven Within — Where Creativity Becomes Care', description = 'Creative life coaching, handmade goods, original watercolor art, and soulful resources for mothers seeking more calm, connection, and creative nourishment.' } = Astro.props;
+const nav = [
+  ['#about', 'About'],
+  ['#approach', 'Approach'],
+  ['#gallery', 'Gallery'],
+  ['#work', 'Work Together'],
+  ['#shop', 'Shop'],
+  ['#journal', 'Journal'],
+  ['#contact', 'Connect'],
+];
 ---
-
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content={description} />
   <title>{title}</title>
+  <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Karla:wght@300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/images/art/flow.jpg" />
 </head>
 <body>
-  <div class="woven-bg"></div>
-
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-brand-name">Woven Within</span>
-      <span class="nav-brand-by">by Melissa</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#approach">Approach</a></li>
-      <li><a href="/#work">Work Together</a></li>
-      <li><a href="/#shop">Shop</a></li>
-      <li><a href="/#journal">Journal</a></li>
-      <li><a href="/#contact" class="nav-cta">Connect</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  <header class="nav">
+    <a class="nav-logo" href="/">Woven Within <span>by Melissa</span></a>
+    <nav class="nav-links" id="navLinks">
+      {nav.map(([href, label]) => <a href={'/' + href}>{label}</a>)}
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
-  </nav>
+  </header>
 
-  <!-- Page content -->
-  <slot />
+  <main><slot /></main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="sec-center">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-brand-name">Woven Within</span>
-          <span class="nav-brand-by">Where creativity becomes care</span>
-          <p class="footer-blurb">Creative life coaching, handmade goods, and soulful resources for mothers seeking more calm, connection, and creative nourishment in their lives. Woven Within is a personal practice and a creative home — tended by Melissa with care, color, and devotion.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#approach">Approach</a></li>
-            <li><a href="/#work">Work Together</a></li>
-            <li><a href="/#shop">Shop</a></li>
-            <li><a href="/#journal">Journal</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="/#contact">Contact Melissa</a></li>
-            <li><a href="#">Email Newsletter</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Pinterest</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Support</h4>
-          <ul>
-            <li><a href="#">Shipping & Returns</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-        </div>
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-logo">Woven Within</p>
+        <p class="footer-tag">Where creativity becomes care</p>
+        <p class="footer-desc">Creative life coaching, handmade goods, and soulful resources for mothers seeking more calm, connection, and creative nourishment in their lives. Woven Within is a personal practice and a creative home — tended by Melissa with care, color, and devotion.</p>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 Woven Within by Melissa. All rights reserved. Made with care.</p>
-        <div class="footer-socials">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Pinterest">Pin</a>
-          <a href="#" aria-label="Email">@</a>
-        </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="/#about">About</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#gallery">Gallery</a>
+        <a href="/#work">Work Together</a>
+        <a href="/#shop">Shop</a>
+        <a href="/#journal">Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="/#contact">Contact Melissa</a>
+        <a href="/#newsletter">Email Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Shipping &amp; Returns</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>© 2026 Woven Within by Melissa. All rights reserved. Made with care.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Pinterest">Pin</a>
+        <a href="#" aria-label="Email">@</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const nav = document.getElementById('nav');
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      const obs = new IntersectionObserver(([e]) => {
-        nav?.classList.toggle('solid', !e.isIntersecting);
-      }, { threshold: 0.85 });
-      obs.observe(hero);
-    } else {
-      nav?.classList.add('solid');
-    }
-
+    // Mobile nav
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle?.addEventListener('click', () => {
-      links?.classList.toggle('open');
-      const s = toggle.querySelectorAll('span');
-      if (links?.classList.contains('open')) {
-        s[0].style.transform = 'rotate(45deg) translate(4px,4px)';
-        s[1].style.opacity = '0';
-        s[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
-      } else {
-        s.forEach(sp => { sp.style.transform = ''; sp.style.opacity = ''; });
-      }
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-
     links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       links.classList.remove('open');
-      toggle?.querySelectorAll('span').forEach(sp => { sp.style.transform = ''; sp.style.opacity = ''; });
+      toggle?.setAttribute('aria-expanded', 'false');
     }));
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
+
+  <style is:global>
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(24px, 4vw, 56px);
+      background: rgba(253,248,244,0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(123,74,107,0.08);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 500; letter-spacing: 0.02em;
+      color: var(--plum-deep); text-decoration: none;
+    }
+    .nav-logo span { font-family: var(--font-accent); font-size: 1.05rem; color: var(--rose); margin-left: 4px; }
+    .nav-links { display: flex; gap: clamp(18px, 2.4vw, 34px); }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--text); text-decoration: none; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--plum-deep); border-radius: 2px; }
+
+    main { padding-top: 0; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--plum-deep); color: rgba(255,255,255,0.82); padding: clamp(64px, 8vw, 100px) clamp(24px, 5vw, 80px) 36px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto 56px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.7rem; font-weight: 400; color: #fff; }
+    .footer-tag { font-family: var(--font-accent); font-size: 1.2rem; color: var(--rose-soft); margin: 4px 0 16px; }
+    .footer-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.6); max-width: 380px; }
+    .footer-col h4 { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-soft); margin-bottom: 18px; font-weight: 600; }
+    .footer-col a { display: block; font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.72); text-decoration: none; margin-bottom: 12px; transition: color 0.25s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-base { max-width: 1200px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-base p { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-socials a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+      font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: all 0.3s;
+    }
+    .footer-socials a:hover { border-color: var(--rose-soft); color: var(--rose-soft); transform: translateY(-2px); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-toggle { display: flex !important; }
+      .nav-links.open {
+        display: flex !important; flex-direction: column;
+        position: fixed; top: var(--nav-h); left: 0; width: 100%;
+        background: rgba(253,248,244,0.98);
+        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+        padding: 28px 32px 36px; gap: 22px;
+        border-bottom: 1px solid rgba(123,74,107,0.06);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.04);
+        z-index: 999;
+      }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+  </style>
 </body>
 </html>
-
-<style is:global>
-  /* === NAV === */
-  .nav { position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-h); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(20px, 4vw, 72px); background: rgba(253,248,244,0); backdrop-filter: blur(0px); transition: all 0.5s ease; }
-  .nav.solid { background: rgba(253,248,244,0.94); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 1px 40px rgba(92,54,81,0.04); border-bottom: 1px solid rgba(123,74,107,0.05); }
-  .nav-brand { text-decoration: none; display: flex; flex-direction: column; }
-  .nav-brand-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; letter-spacing: 0.14em; color: var(--plum-deep); text-transform: uppercase; line-height: 1.1; }
-  .nav-brand-by { font-family: var(--font-accent); font-size: 0.8rem; color: var(--rose); margin-top: -1px; }
-  .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.8vw, 40px); list-style: none; }
-  .nav-links li { list-style: none; }
-  .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text); text-decoration: none; position: relative; padding: 4px 0; transition: color 0.3s; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1.5px; background: var(--rose); transition: width 0.4s var(--ease-out); }
-  .nav-links a:hover { color: var(--plum); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta { background: var(--plum) !important; color: white !important; padding: 10px 26px !important; border-radius: 100px; font-size: 0.75rem !important; transition: all 0.35s ease !important; }
-  .nav-cta::after { display: none !important; }
-  .nav-cta:hover { background: var(--plum-deep) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(92,54,81,0.2); }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 10; }
-  .nav-toggle span { width: 24px; height: 1.5px; background: var(--plum-deep); transition: all 0.3s; display: block; }
-
-  /* === FOOTER === */
-  .footer { background: var(--plum-rich); color: rgba(255,255,255,0.65); padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px) 36px; position: relative; }
-  .footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--rose), var(--lavender), var(--sky), var(--coral-warm), var(--rose)); }
-  .footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: clamp(28px, 4vw, 60px); margin-bottom: 56px; }
-  .footer-brand .nav-brand-name { color: white; font-size: 1.15rem; }
-  .footer-brand .nav-brand-by { color: var(--rose-soft); display: block; margin-bottom: 18px; }
-  .footer-blurb { font-size: 0.86rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.48); max-width: 340px; }
-  .footer-col h4 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 400; color: white; margin-bottom: 18px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; padding: 0; }
-  .footer-col li { list-style: none; }
-  .footer-col ul a { font-size: 0.84rem; font-weight: 300; color: rgba(255,255,255,0.48); text-decoration: none; transition: color 0.3s; }
-  .footer-col ul a:hover { color: var(--rose-soft); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-  .footer-copy { font-size: 0.74rem; font-weight: 300; color: rgba(255,255,255,0.3); }
-  .footer-socials { display: flex; gap: 12px; }
-  .footer-socials a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem; font-weight: 500; transition: all 0.3s; }
-  .footer-socials a:hover { border-color: var(--rose-soft); color: var(--rose-soft); transform: translateY(-2px); }
-
-  /* === MOBILE === */
-  @media (max-width: 768px) {
-    .nav-links { display: none !important; }
-    .nav-toggle { display: flex !important; }
-    .nav-links.open {
-      display: flex !important;
-      flex-direction: column;
-      position: fixed;
-      top: var(--nav-h);
-      left: 0;
-      width: 100%;
-      background: rgba(253,248,244,0.98);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      padding: 28px 32px 36px;
-      gap: 22px;
-      border-bottom: 1px solid rgba(123,74,107,0.06);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.04);
-      z-index: 999;
-    }
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 1024px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  }
-</style>
